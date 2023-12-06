@@ -15,8 +15,6 @@ function App() {
     
     <BrowserRouter>
 
-
-    
       <div className="App">
         <Navbar collapseOnSelect expand="lg" className="bg-body-tertiary">
           <Container>
