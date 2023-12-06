@@ -1,7 +1,7 @@
 const express = require('express')
 const app = express()
 const port = 4000 //server running on port 4000
-const cors = require('cors'); //importing 'cors' middleware
+
 
 //CORS
 //Using the Cors library
@@ -20,6 +20,10 @@ const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json()); //parse app/json
 
+//test request
+app.get('/', (req,res)=>{//server listens for request
+    res.send('Hello from Server!')//response
+})
 
 //Getting started with mongoose
 const mongoose = require('mongoose');
@@ -43,3 +47,8 @@ const schema= new mongoose.Schema({ //A recipe will consist the meal nanme,descr
 
 //This is the model for the database
 const recipeModel =mongoose.model('Food',schema);
+
+
+app.listen(port, () => { //app listening on port 4000
+    console.log(`Example app listening on port ${port}`)
+  })
