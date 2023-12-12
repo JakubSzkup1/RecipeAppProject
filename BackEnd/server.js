@@ -65,6 +65,11 @@ app.post('/api/recipe', (req, res) => {
         .catch(() => { res.send("Recipe has not been created") })
 })
 
+app.get('/api/recipes', async(req,res)=>{
+    let recipes =await recipeModel.find({}); //await to comeback from database
+    res.json(recipes);
+
+})
 app.listen(port, () => { //app listening on port 4000
     console.log(`Recipe App listening on : ${port}`)
 })

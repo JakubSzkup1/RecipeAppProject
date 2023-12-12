@@ -1,0 +1,27 @@
+
+
+
+.form-group {
+    margin-bottom: 20px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.8); /* Set a semi-transparent white background for better readability */
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.form-control {
+    width: 60%;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 10px;
+    border: 3px solid #bbbab8;
+    border-radius: 50px;
+    box-sizing: border-box;
+}
+.form-control1{
+    width: 100%;
+    padding: 60px;
+    border: 3px solid #111111;
+    border-radius: 3px;
+    box-sizing: border-box;
+}
