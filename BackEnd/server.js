@@ -21,7 +21,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json()); //parse app/json
 
 //test request
-app.get('/', (req,res)=>{//server listens for request
+app.get('/', (req, res) => {//server listens for request
     res.send('Hello from Server!')//response
 })
 
@@ -37,20 +37,34 @@ async function main() {
 }
 
 //Creating a Schema for the Recipes
-const schema= new mongoose.Schema({ //A recipe will consist the meal nanme,description,ingredients and prep
-    meal:String,
-    description:String,
-    ingredients:String,
-    prep:String
-    
+const schema = new mongoose.Schema({ //A recipe will consist the meal nanme,description,ingredients and prep
+    meal: String,
+    description: String,
+    ingredients: String,
+    prep: String
+
 })
 
 //This is the model for the database which represents a collection 
-const recipeModel =mongoose.model('Food',schema);
+const recipeModel = mongoose.model('Food', schema);
 
 //Making a request for the recipe
-app.post('/')
+app.post('/api/recipe', (req, res) => {
+    //Logging the data to the console
+    console.log(req.body);
+
+    //This creates new meal,description,ingredients and preperation
+    recipeModel.create({
+        meal: req.body.meal,
+        description: req.body.description,
+        ingredients: req.body.ingredients,
+        prep: req.body.prep
+
+    })
+        .then(() => { res.send("Recipe has been created") })
+        .catch(() => { res.send("Recipe has not been created") })
+})
 
 app.listen(port, () => { //app listening on port 4000
-    console.log(`Example app listening on port ${port}`)
-  })
+    console.log(`Recipe App listening on : ${port}`)
+})
