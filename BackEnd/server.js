@@ -15,7 +15,7 @@ app.use(function (req, res, next) {
     next(); //Move on to next middleware
 });
 
-//Insatlling body-parser
+//Insatlling body-parser to parse requests with JSON payloads.
 const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json()); //parse app/json
@@ -45,9 +45,11 @@ const schema= new mongoose.Schema({ //A recipe will consist the meal nanme,descr
     
 })
 
-//This is the model for the database
+//This is the model for the database which represents a collection 
 const recipeModel =mongoose.model('Food',schema);
 
+//Making a request for the recipe
+app.post('/')
 
 app.listen(port, () => { //app listening on port 4000
     console.log(`Example app listening on port ${port}`)
