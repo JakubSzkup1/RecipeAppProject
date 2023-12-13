@@ -52,7 +52,7 @@ function Create() {
                 {/* Add Despcription of meal*/}
 
                 <div className="form-group">
-                    <label>Description of Meal: </label>
+                    <label> Description of Meal:</label>
                     <input type="text"
                         className="form-control"
                         value={description}
@@ -62,7 +62,7 @@ function Create() {
                  {/* Add Ingredients*/}
 
                  <div className="form-group">
-                    <label>Ingredients: </label>
+                    <label> Ingredients:</label>
                     <input type="text"
                         className="form-control"
                         value={ingredients}
@@ -72,7 +72,7 @@ function Create() {
                  {/* Add preperation of meal*/}
 
                  <div className="form-group">
-                    <label>Preperation of Meal: </label>
+                    <label> Preperation of Meal:</label>
                 
                        <textarea
                         value={preperation}
