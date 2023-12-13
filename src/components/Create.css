@@ -25,3 +25,11 @@
     border-radius: 3px;
     box-sizing: border-box;
 }
+input[type="submit"] {
+    background-color: orange;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer; /*cursor changes when hoovering over button*/
+}

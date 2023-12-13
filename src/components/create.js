@@ -80,6 +80,10 @@ function Create() {
                         rows="6" // Set the number of visible rows
                     ></textarea>
                 </div>
+
+                <div>
+                    <input type="submit" value="Add Recipe"></input>
+                </div>
             </form>
         </div>
 
