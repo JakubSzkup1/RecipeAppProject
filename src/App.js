@@ -37,15 +37,16 @@ function App() {
                 <Nav.Link href="/create">Add Recipes</Nav.Link> {/*create*/}
               </Nav>
               <Nav>
-                <Nav.Link href="/counter">Calorie Counter!</Nav.Link>
+                <Nav.Link href="/counter">Calorie Counter!</Nav.Link> {/*Calorie counter*/}
 
               </Nav>
             </Navbar.Collapse>
           </Container>
         </Navbar>
         <Routes>
+          {/* All The routes here */}
           <Route path='/' element={<Home></Home>}></Route>
-          <Route path='/create' element={<Create></Create>}></Route> {/*component added to nav bar , when clicked brings to NewRecipe.js*/}
+          <Route path='/create' element={<Create></Create>}></Route> 
          <Route path='myrecipes' element={<Read></Read>}></Route>
          <Route path='/counter' element={<Counter></Counter>}></Route>
          <Route path='/edit/:id' element={<Edit></Edit>}></Route>

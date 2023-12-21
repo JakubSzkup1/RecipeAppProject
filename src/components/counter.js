@@ -49,13 +49,13 @@ function CaloriesTracker() {
             <form onSubmit={handleSubmit}>
                 <input
                     type="number"
-                    value={calories}
+                    value={calories} //stores the value when user enters calories
                     onChange={handleInputChange}
                     placeholder="Enter calories here"
                 />
                 <button type="submit" style={buttonStyle}>Add</button>
             </form>
-            <p>Your Total Calories: {totalCalories}</p>
+            <p>Your Total Calories: {totalCalories}</p> //Added up calories 
             <button onClick={handleClear} style={buttonStyle}>Clear</button>
         </div>
     );

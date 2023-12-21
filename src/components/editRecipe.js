@@ -3,19 +3,23 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 
 export default function Edit() {
+    //uesParams to get the id from the URL
     let { id } = useParams();
 
+    //State variables for recipe details
     const [meal, setMeal] = useState('');
     const [description, setDescription] = useState('');
     const [ingredients, setIngredients] = useState('');
     const [prep, setPrep] = useState('');
 
+    //Use Navigate for redirection after editing form
     const navigate = useNavigate();
 
-    useEffect(
+    useEffect( //useEffect loads recipe data from the server
         () => {
             axios.get('http://localhost:4000/api/recipe/' + id)
                 .then((response) => {
+                    //Updates the state variables with new data
                     setMeal(response.data.meal);
                     setDescription(response.data.description);
                     setIngredients(response.data.ingredients);
@@ -23,16 +27,18 @@ export default function Edit() {
                 })
                 .catch(
                     (error) => {
-                        console.log(error);
+                        console.log(error); //Log error
                     }
                 );
 
         }, []
     );
 
+    //Handles form submission
     const handleSubmit = (e) => {
         e.preventDefault();
 
+        //recipe object
         const recipe = {
             meal: meal,
             description: description,
@@ -40,6 +46,7 @@ export default function Edit() {
             prep: prep
         }
 
+        //Sends a put request to update recipe
         axios.put('http://localhost:4000/api/recipe/' + id, recipe)
             .then((res) => {
                 navigate('/myrecipes');
@@ -50,6 +57,7 @@ export default function Edit() {
                 });//double check on this
 
     }
+    //Form for editing component
     return (
         <div>
             <h2>Edit Your Recipes Here</h2>

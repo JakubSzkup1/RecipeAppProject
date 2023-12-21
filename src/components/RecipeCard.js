@@ -36,7 +36,6 @@ function RecipeCard(props) {
                         variant="top"
                         src="https://uxwing.com/wp-content/themes/uxwing/download/food-and-drinks/meal-food-icon.png"
                         style={{ width: '100px', marginBottom: '15px' }} />
-
                     <Card.Subtitle>Meal</Card.Subtitle>
                     <Card.Title>{props.myRecipe.meal}</Card.Title>
                     <Card.Subtitle>Description</Card.Subtitle>
@@ -46,11 +45,14 @@ function RecipeCard(props) {
                     <Card.Subtitle>Preperation</Card.Subtitle>
                     <Card.Text>{props.myRecipe.prep}</Card.Text>
                 </Card.Body>
+                {/* Link to edit the recipe */}
                 <Link to={'/edit/' + props.myRecipe._id} style={buttonStyle} className='btn btn-primary'>Edit Recipe</Link>
+                {/* Button to delete the recipe */}
                 <Button variant='danger' style={buttonStyle} onClick={
                     (e) => {
                         e.preventDefault();
 
+                        // Making delete request to server
                         axios.delete('http://localhost:4000/api/recipe/' + props.myRecipe._id)
                             .then((res) => {
                                 let reload = props.Reload();

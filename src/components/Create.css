@@ -1,7 +1,6 @@
 .form-group {
     margin-bottom: 20px;
     text-align: center;
-
     /* Set a semi-transparent white background for better readability */
     padding: 20px;
     border-radius: 10px;
@@ -10,7 +9,7 @@
 
 body {
     background-image: url('https://images.pexels.com/photos/218434/pexels-photo-218434.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
-    /* Ensure it covers the entire page */
+    /* Ensures it covers the entire page */
     background-size: cover;
 }
 
@@ -26,7 +25,7 @@ input[type="submit"] {
     /*cursor changes when hoovering over button*/
 }
 
-.create-container {
+.create-container { /* Conatiner styling*/
     max-width: 600px;
     margin: 0 auto;
     padding: 20px;

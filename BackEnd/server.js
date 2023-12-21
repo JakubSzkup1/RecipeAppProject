@@ -92,10 +92,11 @@ app.get('/api/recipes', async (req, res) => {
     res.json(recipes);
 })
 
+//Searches by id
 app.get('/api/recipe/:identifier', async (req, res) => { 
     console.log(req.params.identifier);
 
-    let recipe = await recipeModel.findById(req.params.identifier)// take id
+    let recipe = await recipeModel.findById(req.params.identifier)// takes id
     res.send(recipe);
 })
 
