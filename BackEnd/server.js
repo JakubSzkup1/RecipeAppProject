@@ -47,7 +47,7 @@ const schema = new mongoose.Schema({ //A recipe will consist the meal nanme,desc
 })
 
 //This is the model for the database which represents a collection 
-const recipeModel = mongoose.model('Food', schema);
+const recipeModel = mongoose.model('my_Recipes', schema);
 
 
 //Delete recipes by id
