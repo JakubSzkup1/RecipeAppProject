@@ -55,7 +55,7 @@ function CaloriesTracker() {
                 />
                 <button type="submit" style={buttonStyle}>Add</button>
             </form>
-            <p>Your Total Calories: {totalCalories}</p> //Added up calories 
+            <p>Your Total Calories: {totalCalories}</p> {/* Added up calories  */}
             <button onClick={handleClear} style={buttonStyle}>Clear</button>
         </div>
     );
