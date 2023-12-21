@@ -10,6 +10,9 @@ import Carousel from 'react-bootstrap/Carousel';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './components/Home';
 import Create  from './components/create';
+import Read from './components/read';
+import Counter from './components/counter';
+import Edit from './components/editRecipe';
 
 
 function App() {
@@ -29,12 +32,12 @@ function App() {
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
               <Nav className="me-auto">
-                <Nav.Link href="/recipes">Recipes</Nav.Link>{/*will be an api with recipes or mongodb database*/}
+               
                 <Nav.Link href="/myrecipes">My Recipes</Nav.Link> {/*read*/}
                 <Nav.Link href="/create">Add Recipes</Nav.Link> {/*create*/}
               </Nav>
               <Nav>
-                <Nav.Link href="#deets">Something</Nav.Link>
+                <Nav.Link href="/counter">Calorie Counter!</Nav.Link>
 
               </Nav>
             </Navbar.Collapse>
@@ -43,7 +46,9 @@ function App() {
         <Routes>
           <Route path='/' element={<Home></Home>}></Route>
           <Route path='/create' element={<Create></Create>}></Route> {/*component added to nav bar , when clicked brings to NewRecipe.js*/}
-
+         <Route path='myrecipes' element={<Read></Read>}></Route>
+         <Route path='/counter' element={<Counter></Counter>}></Route>
+         <Route path='/edit/:id' element={<Edit></Edit>}></Route>
         </Routes>
       </div>
     </BrowserRouter>

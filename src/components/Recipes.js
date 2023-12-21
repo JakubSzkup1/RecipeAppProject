@@ -1,10 +1,11 @@
-import RecipeCard from "./RecipeCard";
+import RecipeCard from "./RecipeCard"; //Importing Recipecard component
 
-function Recipes(properties){
+//Recipes Function
+function Recipes(props){
 
-    return propTypes.myRecipes.map(
+    return props.myRecipes.map( //Maps over
         (recipe)=>{
-            return<RecipeCard myRecipes={recipe} key={recipe.id}></RecipeCard> //with a unique id
+            return <RecipeCard myRecipe={recipe} key={recipe.id} Reload={()=>{props.ReloadData();}}></RecipeCard> //Passes reccipe data and key to each RecipeCard
         }
 
     );

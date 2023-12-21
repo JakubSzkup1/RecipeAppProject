@@ -1,35 +1,92 @@
-
-
-
 .form-group {
     margin-bottom: 20px;
     text-align: center;
-    background: rgba(255, 255, 255, 0.8); /* Set a semi-transparent white background for better readability */
+
+    /* Set a semi-transparent white background for better readability */
     padding: 20px;
     border-radius: 10px;
+
 }
 
-.form-control {
-    width: 60%;
-    max-width: 400px;
-    margin: 0 auto;
-    padding: 10px;
-    border: 3px solid #bbbab8;
-    border-radius: 50px;
-    box-sizing: border-box;
+body {
+    background-image: url('https://images.pexels.com/photos/218434/pexels-photo-218434.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+    /* Ensure it covers the entire page */
+    background-size: cover;
 }
-.form-control1{
-    width: 100%;
-    padding: 60px;
-    border: 3px solid #111111;
-    border-radius: 3px;
-    box-sizing: border-box;
-}
+
+
+
 input[type="submit"] {
     background-color: orange;
     color: white;
     padding: 10px 20px;
     border: none;
     border-radius: 10px;
-    cursor: pointer; /*cursor changes when hoovering over button*/
+    cursor: pointer;
+    /*cursor changes when hoovering over button*/
+}
+
+.create-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    border-radius: 8px;
+
+    /*background image styling*/
+    background-image: url('https://images.pexels.com/photos/129731/pexels-photo-129731.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.form-title {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.recipe-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+
+
+.form-group label {
+    font-weight: bold;
+    color: #555;
+}
+
+.form-control {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.textarea {
+    background-color: #eee8e8;
+    min-height: 100px;
+    /* Adjust the height of the textarea */
+}
+
+.submit-container {
+    text-align: center;
+}
+
+.submit-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.submit-button:hover {
+    background-color: #0056b3;
 }

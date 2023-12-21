@@ -17,6 +17,7 @@ app.use(function (req, res, next) {
 
 //Insatlling body-parser to parse requests with JSON payloads.
 const bodyParser = require('body-parser');
+//Here we are configuring express to use body-parser as middle-ware.
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json()); //parse app/json
 
@@ -48,6 +49,25 @@ const schema = new mongoose.Schema({ //A recipe will consist the meal nanme,desc
 //This is the model for the database which represents a collection 
 const recipeModel = mongoose.model('Food', schema);
 
+
+//Delete recipes by id
+app.delete('/api/recipe/:id', async (req, res) => {
+    console.log("Delete: " + req.params.id);
+
+    //find recipe by id and then delete recipe
+    let recipe = await recipeModel.findByIdAndDelete(req.params.id);
+    res.send(recipe);
+
+})
+
+//Update the recipe
+app.put('/api/recipe/:id',async(req,res)=>{
+    console.log("Update: "+req.params.id);
+
+    let recipe = await recipeModel.findByIdAndUpdate(req.params.id, req.body, {new:true});
+    res.send(recipe);
+})
+
 //Making a request for the recipe
 app.post('/api/recipe', (req, res) => {
     //Logging the data to the console
@@ -65,11 +85,20 @@ app.post('/api/recipe', (req, res) => {
         .catch(() => { res.send("Recipe has not been created") })
 })
 
-app.get('/api/recipes', async(req,res)=>{
-    let recipes =await recipeModel.find({}); //await to comeback from database
-    res.json(recipes);
+//Async Function-receives all data from database
+app.get('/api/recipes', async (req, res) => {
 
+    let recipes = await recipeModel.find({}); //await to comeback from database    
+    res.json(recipes);
 })
+
+app.get('/api/recipe/:identifier', async (req, res) => { 
+    console.log(req.params.identifier);
+
+    let recipe = await recipeModel.findById(req.params.identifier)// take id
+    res.send(recipe);
+})
+
 app.listen(port, () => { //app listening on port 4000
     console.log(`Recipe App listening on : ${port}`)
 })

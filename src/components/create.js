@@ -1,6 +1,6 @@
 import { useState } from "react"; //importing {useState}
 import "./Create.css"; // Import CSS file
-//import axios from "axios"; //importing axios
+import axios from "axios"; //importing axios
 
 //Creating a function that will create a recipe
 function Create() {
@@ -14,81 +14,63 @@ function Create() {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        console.log("meal: " + meal + "description: " + description + "Ingredients: " + ingredients + "Preperation: " + preperation);
+
+        //Console log the Values
+        console.log("My Meal: " + meal +
+            "Description: " + description +
+            "Ingredients Used: " + ingredients +
+            "Preperation: " + preperation);
+
+        //Create recipe object
+        const recipe = {
+            meal: meal,
+            description: description,
+            ingredients: ingredients,
+            preperation: preperation
+        };
+
+        //Post Request to server
+        axios.post("http://localhost:4000/api/recipe", recipe)
+            .then()
+            .catch();
+
     }
-
-    //Log the above to console
-    console.log("My Meal: " + meal +
-        "Description: " + description +
-        "Ingredients Used: " + ingredients +
-        "Preperation: " + preperation);
-
-    const recipe = ({
-        meal: meal,
-        description: description,
-        ingredients: ingredients,
-        preperation: preperation
-    });
-
-    //axios.post("https://localhost:4000/api/recipe", recipe)
-    // .then()
-    // .catch();
-
-
+    //Form for creating the recipes
     return (
-        //Form for user to input details of meal preperation
-        <div>
-            <form onSubmit={handleSubmit}>
+        <div className="create-container">
+            <h2 className="form-title">Add a New Recipe</h2>
+            <form onSubmit={handleSubmit} className="recipe-form">
 
-                {/* Add meal name */}
                 <div className="form-group">
                     <label>Meal Name: </label>
-                    <input type="text"
-                        className="form-control"
-                        value={meal}
-                        onChange={(e) => { setMeal(e.target.value) }} />
+                    <input type="text" className="form-control" value={meal}
+                        onChange={(e) => setMeal(e.target.value)} />
                 </div>
-
-                {/* Add Despcription of meal*/}
 
                 <div className="form-group">
-                    <label> Description of Meal:</label>
-                    <input type="text"
-                        className="form-control"
-                        value={description}
-                        onChange={(e) => { setDescription(e.target.value) }} />
+                    <label>Description of Meal:</label>
+                    <input type="text" className="form-control" value={description}
+                        onChange={(e) => setDescription(e.target.value)} />
                 </div>
 
-                 {/* Add Ingredients*/}
-
-                 <div className="form-group">
-                    <label> Ingredients:</label>
-                    <input type="text"
-                        className="form-control"
-                        value={ingredients}
-                        onChange={(e) => { setIngredients(e.target.value) }} />
+                <div className="form-group">
+                    <label>Ingredients:</label>
+                    <input type="text" className="form-control" value={ingredients}
+                        onChange={(e) => setIngredients(e.target.value)} />
                 </div>
 
-                 {/* Add preperation of meal*/}
-
-                 <div className="form-group">
-                    <label> Preperation of Meal:</label>
-                
-                       <textarea
-                        value={preperation}
-                        onChange={(e) => setPreperation(e.target.value)}
-                        rows="6" // Set the number of visible rows
-                    ></textarea>
+                <div className="form-group">
+                    <label>Preparation of Meal:</label>
+                    <textarea className="form-control textarea" value={preperation}
+                        onChange={(e) => setPreperation(e.target.value)} rows="6"></textarea>
                 </div>
 
-                <div>
-                    <input type="submit" value="Add Recipe"></input>
+                <div className="submit-container">
+                    <input type="submit" value="Add Recipe" className="submit-button" />
                 </div>
             </form>
         </div>
-
     );
-
 }
 
 export default Create;

@@ -1,8 +1,10 @@
 import Carousel from 'react-bootstrap/Carousel';
 
 
-
+//HomePage
 function Home() {
+  //Creating a Image slideshow as the homepage with some basic info about the application
+  //Used bootstrap carousel for the image slideshow
   return (
     <div style={{maxWidth:'600',margin:'auto'}}>
     <Carousel data-bs-theme="dark">
@@ -14,8 +16,8 @@ function Home() {
           style={{ height: '900px', objectFit: 'cover' }}
         />
         <Carousel.Caption>
-          <h5>First slide label</h5>
-          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+          <h5>Add Your meals</h5>
+          <p>Add your meals to Your own Recipe book!</p>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
@@ -26,8 +28,8 @@ function Home() {
           style={{ height: '900px', objectFit: 'cover' }}
         />
         <Carousel.Caption>
-          <h5>Second slide label</h5>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <h5>Preperation</h5>
+          <p>Never forget Your own recipe!</p>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
@@ -38,9 +40,9 @@ function Home() {
           style={{ height: '900px', objectFit: 'cover' }}
         />
         <Carousel.Caption>
-          <h5>Third slide label</h5>
+          <h5>Calorie Tracker</h5>
           <p>
-            Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+            Keep track of your Daily calories
           </p>
         </Carousel.Caption>
       </Carousel.Item>
